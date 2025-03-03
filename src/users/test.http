@@ -1,0 +1,61 @@
+### Variáveis
+@baseUrl = http://localhost:3000
+@userId = 00000000-0000-0000-0000-000000000000 # Substitua por um ID real após criar um usuário
+
+### Criar um novo usuário (público)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "usuario@example.com",
+  "name": "Usuário Teste",
+  "password": "senha123"
+}
+
+### Fazer login e obter token
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "usuario@example.com",
+  "password": "senha123"
+}
+
+### Capturar token da resposta do login
+@accessToken = {{login.response.body.accessToken}}
+
+
+### Listar todos os usuários (apenas admin)
+GET {{baseUrl}}/users
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+### Obter usuário pelo ID (apenas o próprio usuário ou admin)
+GET {{baseUrl}}/users/{{userId}}
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+### Atualizar usuário (apenas o próprio usuário ou admin)
+PUT {{baseUrl}}/users/4369414e-29a1-4fce-bc3b-e51704c95eeb
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "name": "Nome Atualizado",
+  "password": "novaSenha123"
+}
+
+### Atualizar apenas o email do usuário
+PUT {{baseUrl}}/users/4369414e-29a1-4fce-bc3b-e51704c95eeb
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "email": "novoemail@example.com"
+}
+
+### Excluir usuário (apenas o próprio usuário ou admin)
+DELETE {{baseUrl}}/users/4369414e-29a1-4fce-bc3b-e51704c95eeb
+Content-Type: application/json
+Authorization: Bearer {{accessToken}} 

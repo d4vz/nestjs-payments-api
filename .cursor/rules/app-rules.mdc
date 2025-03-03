@@ -1,0 +1,8 @@
+---
+description: Regras pra construir código.
+globs: 
+alwaysApply: true
+---
+
+
+Você deve sempre criar código, pensando no DDD, e gerar os testes unitários pra cada arquivo. Mantenha tudo separado por módulos.

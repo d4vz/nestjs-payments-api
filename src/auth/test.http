@@ -1,0 +1,49 @@
+### Variáveis
+@baseUrl = http://localhost:3000
+
+### Signup (Cadastro de novo usuário)
+POST {{baseUrl}}/auth/signup
+Content-Type: application/json
+
+{
+  "email": "novo@example.com",
+  "name": "Novo Usuário",
+  "password": "senha123"
+}
+
+### Login
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "usuario@example.com",
+  "password": "senha123"
+}
+
+### Capturar token da resposta do login
+@accessToken = {{login.response.body.accessToken}}
+
+### Listar todos os usuários (requer token de admin)
+GET {{baseUrl}}/users
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+### Obter usuário pelo ID (requer token e política)
+GET {{baseUrl}}/users/user_id_aqui
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+### Atualizar usuário (requer token e política)
+PUT {{baseUrl}}/users/user_id_aqui
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "name": "Nome Atualizado"
+}
+
+### Excluir usuário (requer token e política)
+DELETE {{baseUrl}}/users/user_id_aqui
+Content-Type: application/json
+Authorization: Bearer {{accessToken}} 
