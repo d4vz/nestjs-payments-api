@@ -1,73 +1,68 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 💳 Payments API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Uma API robusta para processamento de pagamentos, construída com [NestJS](https://nestjs.com/) seguindo os princípios de **DDD (Domain-Driven Design)**, utilizando [TypeORM](https://typeorm.io/) para persistência.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## ✨ Features
 
-## Description
+- Processamento de pagamentos com validações de domínio
+- Arquitetura escalável baseada em DDD
+- Camada de aplicação desacoplada do domínio
+- Repositórios e serviços orientados a contratos
+- Suporte a múltiplos métodos de pagamento
+- Integração com gateways externos (mockados ou reais)
+- Banco de dados relacional (PostgreSQL recomendado)
+- Validação com `class-validator` e `DTOs` claros
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+🚀 Instalação
 
-## Installation
+Pré-requisitos
+	•	Node.js (v18+)
+	•	PostgreSQL
+	•	Yarn ou npm
 
-```bash
-$ npm install
-```
+Passos
 
-## Running the app
+### 1. Clone o projeto
+git clone https://github.com/d4vz/nestjs-payments-api.git
+cd nestjs-payments-api
 
-```bash
-# development
-$ npm run start
+### 2. Instale as dependências
+yarn
 
-# watch mode
-$ npm run start:dev
+### 3. Configure o .env
+cp .env.example .env
+#### Edite as variáveis de banco, porta, etc.
 
-# production mode
-$ npm run start:prod
-```
+### 4. Rode as migrations
+yarn typeorm migration:run
 
-## Test
+### 5. Inicie o servidor
+yarn start:dev
 
-```bash
-# unit tests
-$ npm run test
+⸻
 
-# e2e tests
-$ npm run test:e2e
+🧪 Testes
 
-# test coverage
-$ npm run test:cov
-```
+# Testes unitários
+yarn test
 
-## Support
+# Testes e2e (end-to-end)
+yarn test:e2e
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+⸻
 
-## Stay in touch
+⚙️ Tecnologias
+	•	NestJS - Framework principal
+	•	TypeORM - ORM com suporte ao PostgreSQL
+	•	PostgreSQL - Banco de dados relacional
+	•	class-validator - Validação de entrada
+	•	dotenv - Configuração de ambiente
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+⸻
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+📌 TODO
+	•	Suporte a múltiplos gateways (ex: Stripe, MercadoPago)
+	•	Filas para processamento assíncrono
+	•	Webhooks para notificações de status
+	•	Observabilidade (logs, tracing, metrics)
+	•	Auth (JWT ou OAuth2)
